@@ -1,0 +1,276 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffe4ec;
+    color: #5c3040;
+}
+
+header {
+    background-color: #ff8fab;
+    color: white;
+    text-align: center;
+    padding: 35px 20px 30px;
+}
+
+header h1 {
+    font-size: 45px;
+    margin: 0 0 10px;
+    font-family: Georgia, serif;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 18px;
+    margin: 0;
+    line-height: 1.5;
+    font-family: Georgia, serif;
+    font-style: italic;
+}
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.destaque {
+    background-color: white;
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.destaque h2 {
+    color: #e85d75;
+    font-size: 30px;
+}
+
+.botao-destaque {
+    display: inline-block;
+    background-color: #ff6f91;
+    color: white;
+    text-decoration: none;
+    padding: 14px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.botao-destaque:hover {
+    transform: scale(1.05);
+    background-color: #e85d75;
+}
+
+.produtos h2 {
+    text-align: center;
+    color: #e85d75;
+    font-size: 30px;
+}
+
+.produto {
+    background-color: white;
+    padding: 20px;
+    margin: 0;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.produto h3 {
+    color: #d94f70;
+}
+
+.produto strong {
+    display: block;
+    color: #e85d75;
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+footer {
+    background-color: #ff8fab;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+.produtos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.produto {
+    margin: 0;
+}
+.produto {
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.produto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+.produto img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+.botao-whatsapp {
+    display: block;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px;
+    margin-top: 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.botao-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+nav {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 10px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #d94f70;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff6f91;
+}
+.informacao {
+    background-color: white;
+    padding: 30px 20px;
+    margin-top: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.informacao h2 {
+    color: #e85d75;
+    font-size: 28px;
+}
+
+.informacao p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+.decoracao {
+    color: #e85d75;
+    font-size: 20px;
+    margin: 20px 0;
+    letter-spacing: 8px;
+}
+html {
+    scroll-behavior: smooth;
+}
+.logo {
+    width: 180px;
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px;
+}
+.sabores {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 15px;
+}
+
+.sabores li {
+    background-color: #fff0f3;
+    color: #555;
+    padding: 8px 12px;
+    margin: 6px 0;
+    border-radius: 12px;
+    font-size: 15px;
+}
+.escolha-sabor {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.escolha-sabor label {
+    display: block;
+    color: #e85d75;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.escolha-sabor select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ffb3c1;
+    border-radius: 12px;
+    background-color: #fff0f3;
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.escolha-sabor .botao-whatsapp {
+    margin-top: 5px;
+}
+.sabor-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff0f3;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 14px;
+}
+
+.sabor-item img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.sabor-item span {
+    font-size: 15px;
+    color: #555;
+    font-weight: 500;
+}
+.sabores-escolha .sabor-item {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+    border: 2px solid transparent;
+}
+
+.sabores-escolha .sabor-item:hover {
+    transform: scale(1.02);
+}
+
+.sabores-escolha .sabor-item.selecionado {
+    border: 2px solid #e85d75;
+    box-shadow: 0 0 0 3px #ffd6df;
+    background-color: #ffe5eb;
+}
+
+.sabores-escolha .sabor-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+}

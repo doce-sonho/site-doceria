@@ -29,6 +29,32 @@
 <div class="decoracao">✦ ✧ ✦</div>
             <a href="#produtos" class="botao-destaque">Ver nossos doces</a>
         </section>
+<section id="galeria">
+<h2> De dar água na boca</h2>
+<p class="galeria-subtitulo">
+    Pequenos momentos, grandes sabores 💗
+</p>
+<div class="foto-destaque">
+    <img src="galeria7.png" alt="Delícia da Doce Sonho" onclick="abrirImagem(this.src)">
+    <div class="legenda-destaque">
+        <h3>Um carinho em forma de doce 💗</h3>
+        <p>
+            Cada detalhe é preparado com carinho para deixar
+            seu dia ainda mais gostoso.
+        </p>
+    </div>
+</div>
+<div class="galeria">
+    <img src="galeria1.png" alt="Delícia da Doce Sonho" onclick="abrirImagem(this.src)">
+    <img src="galeria2.png" alt="Delícia da Doce Sonho" onclick="abrirImagem(this.src)">
+    <img src="galeria3.png" alt="Delícia da Doce Sonho" onclick="abrirImagem(this.src)">
+    <img src="galeria4.png" alt="Delícia da Doce Sonho" onclick="abrirImagem(this.src)">
+    <img src="galeria5.png" alt="Delícia da Doce Sonho" onclick="abrirImagem(this.src)">
+    <img src="galeria6.png" alt="Delícia da Doce Sonho" onclick="abrirImagem(this.src)">
+    <img src="galeria8.png" alt="Delícia da Doce Sonho" onclick="abrirImagem(this.src)">
+    <img src="galeria9.png" alt="Delícia da Doce Sonho" onclick="abrirImagem(this.src)">
+</div>
+</section>
 
         <section class="produtos" id="produtos">
             <h2>Nossos doces</h2>
@@ -147,7 +173,7 @@ function pedirDindin() {
         return;
     }
 
-    const mensagem = `Olá! Gostaria de pedir um Dindin Gourmet sabor ${saborDindinSelecionado}. 🍓`;
+    const mensagem = `Olá! Gostaria de pedir um Dindin Gourmet sabor ${saborDindinSelecionado}. `;
 
     const url = `https://wa.me/5588997984717?text=${encodeURIComponent(mensagem)}`;
 
@@ -173,11 +199,34 @@ function pedirSorvete() {
         return;
     }
 
-    const mensagem = `Olá! Gostaria de pedir um Sorvete sabor ${saborSorveteSelecionado}. 🍦`;
+    const mensagem = `Olá! Gostaria de pedir um Sorvete sabor ${saborSorveteSelecionado}. `;
 
     const url = `https://wa.me/5588997984717?text=${encodeURIComponent(mensagem)}`;
 
     window.location.href = url;
+}
+</script>
+<script>
+function abrirImagem(src) {
+    const janela = document.createElement("div");
+    janela.className = "visualizador";
+
+    janela.innerHTML = `
+        <span class="fechar">&times;</span>
+        <img src="${src}" alt="Imagem ampliada">
+    `;
+
+    document.body.appendChild(janela);
+
+    janela.querySelector(".fechar").onclick = function() {
+        janela.remove();
+    };
+
+    janela.onclick = function(evento) {
+        if (evento.target === janela) {
+            janela.remove();
+        }
+    };
 }
 </script>
 </body>

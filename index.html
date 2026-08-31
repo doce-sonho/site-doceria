@@ -142,6 +142,33 @@
       </div>
     </div>
 
+    <div class="produto">
+      <img src="trufas.jpg" alt="Trufas Doce Sonho">
+      <h3>Trufas</h3>
+      <p>Trufas artesanais em diversos sabores.</p>
+      <strong>R$ 3,00</strong>
+      <div class="escolha-sabor">
+        <label for="sabor-trufas">Escolha seu sabor:</label>
+        <select id="sabor-trufas">
+          <option value="">Selecione um sabor</option>
+          <option value="Chocolate">Chocolate</option>
+          <option value="Dois Amores">Dois Amores</option>
+          <option value="Açaí">Açaí</option>
+          <option value="Amendoim">Amendoim</option>
+          <option value="Beijinho">Beijinho</option>
+          <option value="Ninho">Ninho</option>
+        </select>
+      </div>
+      <div class="controle-quantidade">
+        <button type="button" onclick="alterarQuantidade(this, -1)" aria-label="Diminuir quantidade">−</button>
+        <span class="quantidade-valor">1</span>
+        <button type="button" onclick="alterarQuantidade(this, 1)" aria-label="Aumentar quantidade">+</button>
+      </div>
+      <button onclick="adicionarTrufas(this)" class="botao-carrinho">
+        Adicionar ao carrinho
+      </button>
+    </div>
+
   </section>
 
   <section class="video-destaque">
@@ -325,6 +352,24 @@
     const quantidade = parseInt(controle.textContent, 10) || 1;
     adicionarAoCarrinho(produto, sabor, paraNumero(preco), quantidade);
     controle.textContent = "1";
+  }
+
+  // Produto com sabor escolhido via dropdown (ex: Trufas)
+  function adicionarTrufas(botao) {
+    const card = botao.closest(".produto");
+    const select = card.querySelector("#sabor-trufas");
+    const sabor = select.value;
+
+    if (!sabor) {
+      alert("Escolha um sabor antes de adicionar ao carrinho.");
+      return;
+    }
+
+    const controle = card.querySelector(".controle-quantidade .quantidade-valor");
+    const quantidade = parseInt(controle.textContent, 10) || 1;
+    adicionarAoCarrinho("Trufas", sabor, 3.00, quantidade);
+    controle.textContent = "1";
+    select.value = "";
   }
 
   function removerDoCarrinho(indice) {

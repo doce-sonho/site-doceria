@@ -292,6 +292,30 @@ h2 {
     font-weight: 600;
 }
 
+.escolha-sabor {
+    margin-top: 14px;
+    text-align: left;
+}
+
+.escolha-sabor label {
+    display: block;
+    color: var(--rosa-escuro);
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.escolha-sabor select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--rosa-suave);
+    border-radius: 12px;
+    background-color: var(--rosa-claro);
+    color: var(--texto);
+    font-size: 15px;
+    font-family: var(--fonte-corpo);
+}
+
 .sabores-escolha .sabor-item {
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s, border 0.2s;

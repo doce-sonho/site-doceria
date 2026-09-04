@@ -65,6 +65,26 @@ header p {
     opacity: 0.95;
 }
 
+.status-loja {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: var(--fonte-corpo);
+}
+
+.status-aberto {
+    background-color: #d7f5df;
+    color: #1e7a3c;
+}
+
+.status-fechado {
+    background-color: #ffdfe1;
+    color: #a12a2a;
+}
+
 /* ===== Navegação ===== */
 nav {
     background-color: var(--branco);

@@ -17,6 +17,7 @@
   <img src="Assunto.png" alt="Logo Doce Sonho" class="logo">
   <h1>Doce Sonho</h1>
   <p>Onde todo sonho tem um toque doce.</p>
+  <div id="status-loja" class="status-loja"></div>
 </header>
 
 <nav>
@@ -31,7 +32,7 @@
   <section class="destaque">
     <h2>Bem-vindo à Doce Sonho!</h2>
     <p>Encontre aqui deliciosos doces feitos com muito carinho.</p>
-    <div class="frete-gratis">Frete grátis em pedidos a partir de R$ 10,00</div>
+    <div class="frete-gratis">Frete grátis em pedidos a partir de R$ 10,00 para bairros locais</div>
     <div class="decoracao">✦ ✧ ✦</div>
     <a href="#produtos" class="botao-destaque">Ver nossos doces</a>
   </section>
@@ -64,7 +65,7 @@
     <h2 style="grid-column: 1 / -1;">Nossos doces</h2>
 
     <div class="produto">
-      <img src="morango.JPG" alt="Brownie Doce Sonho" class="foto-brownie">
+      <img src="brownie.jpg" alt="Brownie Doce Sonho">
       <h3>Brownie</h3>
       <p>Delicioso brownie feito com muito chocolate.</p>
       <strong>R$ 7,00</strong>
@@ -79,7 +80,22 @@
     </div>
 
     <div class="produto">
-      <img src="brigadeiro.JPG" alt="Sorvete Doce Sonho">
+      <img src="brownie-pote.jpg" alt="Brownie no Pote Doce Sonho">
+      <h3>Brownie no Pote</h3>
+      <p>Brownie cremoso servido no pote, com calda de chocolate.</p>
+      <strong>R$ 7,00</strong>
+      <div class="controle-quantidade">
+        <button type="button" onclick="alterarQuantidade(this, -1)" aria-label="Diminuir quantidade">−</button>
+        <span class="quantidade-valor">1</span>
+        <button type="button" onclick="alterarQuantidade(this, 1)" aria-label="Aumentar quantidade">+</button>
+      </div>
+      <button onclick="adicionarSimples(this, 'Brownie no Pote', 7.00)" class="botao-carrinho">
+        Adicionar ao carrinho
+      </button>
+    </div>
+
+    <div class="produto">
+      <img src="sorvete-ninho-trufado.jpg" alt="Sorvete Doce Sonho">
       <h3>Sorvete</h3>
       <p>Delicioso sorvete para refrescar seu dia.</p>
       <strong>R$ 4,00</strong>
@@ -92,6 +108,10 @@
         <div class="sabor-item" data-sabor="Chocolate" data-preco="4,00" onclick="selecionarSabor(this)">
           <img src="sorvete-chocolate.jpg" alt="Sorvete sabor Chocolate">
           <span>Chocolate</span>
+        </div>
+        <div class="sabor-item" data-sabor="Ninho Trufado" data-preco="4,00" onclick="selecionarSabor(this)">
+          <img src="sorvete-ninho-trufado.jpg" alt="Sorvete sabor Ninho Trufado">
+          <span>Ninho Trufado</span>
         </div>
         <div class="controle-quantidade">
           <button type="button" onclick="alterarQuantidade(this, -1)" aria-label="Diminuir quantidade">−</button>
@@ -182,7 +202,7 @@
   <section id="pedidos" class="informacao">
     <h2>Faça seu pedido</h2>
     <p>Adicione seus doces favoritos ao carrinho e finalize tudo de uma vez pelo WhatsApp.</p>
-    <p class="frete-gratis-inline">Frete grátis a partir de R$ 10,00</p>
+    <p class="frete-gratis-inline">Frete grátis a partir de R$ 10,00 para bairros locais</p>
   </section>
 
   <section id="contato" class="informacao">
@@ -240,6 +260,30 @@
 
 <script>
   const numeroWhatsapp = "5588997984717";
+
+  // ===== Status da loja (aberto/fechado por horário) =====
+  // TESTE: horário de funcionamento das 07:00 às 21:00, todos os dias
+  const HORARIO_ABERTURA = 7;
+  const HORARIO_FECHAMENTO = 21;
+
+  function atualizarStatusLoja() {
+    const statusEl = document.getElementById("status-loja");
+    if (!statusEl) return;
+
+    const agora = new Date();
+    const hora = agora.getHours() + agora.getMinutes() / 60;
+    const aberto = hora >= HORARIO_ABERTURA && hora < HORARIO_FECHAMENTO;
+
+    if (aberto) {
+      statusEl.textContent = `Aberto agora — atendimento até às ${HORARIO_FECHAMENTO}h`;
+      statusEl.className = "status-loja status-aberto";
+    } else {
+      statusEl.textContent = `Fechado no momento — voltamos às ${HORARIO_ABERTURA}h`;
+      statusEl.className = "status-loja status-fechado";
+    }
+  }
+
+  atualizarStatusLoja();
 
   // Toca o vídeo só quando ele entra na tela, pausa quando sai
   const video = document.getElementById("video-doce");
@@ -411,10 +455,10 @@
     if (total === 0) {
       freteEl.textContent = "";
     } else if (total >= 10) {
-      freteEl.textContent = "Você garantiu o frete grátis!";
+      freteEl.textContent = "Você garantiu o frete grátis para bairros locais!";
     } else {
       const faltam = 10 - total;
-      freteEl.textContent = `Faltam R$ ${paraTextoPreco(faltam)} para o frete grátis`;
+      freteEl.textContent = `Faltam R$ ${paraTextoPreco(faltam)} para o frete grátis (bairros locais)`;
     }
   }
 
@@ -440,7 +484,7 @@
     });
     const total = calcularTotal();
     mensagem += `\nTotal: R$ ${paraTextoPreco(total)}`;
-    mensagem += total >= 10 ? "\nFrete grátis!" : `\n(Faltam R$ ${paraTextoPreco(10 - total)} para frete grátis)`;
+    mensagem += total >= 10 ? "\nFrete grátis (bairros locais)!" : `\n(Faltam R$ ${paraTextoPreco(10 - total)} para frete grátis em bairros locais)`;
 
     window.location.href = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(mensagem)}`;
   }

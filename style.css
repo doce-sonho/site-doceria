@@ -599,6 +599,78 @@ footer {
 }
 
 /* ===== Painel do carrinho ===== */
+/* ===== Modal de loja fechada ===== */
+.modal-fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+}
+
+.modal-fundo.aberto {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-caixa {
+    background-color: var(--branco);
+    border-radius: 20px;
+    padding: 30px 26px;
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-fechar {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 28px;
+    color: var(--texto-suave);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-logo {
+    width: 70px;
+    height: auto;
+    margin: 0 auto 14px;
+    display: block;
+}
+
+.modal-caixa h3 {
+    color: var(--rosa-escuro);
+    font-family: var(--fonte-titulo);
+    font-size: 21px;
+    margin: 0 0 10px;
+}
+
+.modal-caixa p {
+    font-size: 15px;
+    color: var(--texto);
+    margin: 0 0 8px;
+    line-height: 1.5;
+}
+
+.modal-subtexto {
+    color: var(--texto-suave) !important;
+    font-size: 14px !important;
+}
+
+/* ===== Painel do carrinho ===== */
 .carrinho-fundo {
     position: fixed;
     top: 0;

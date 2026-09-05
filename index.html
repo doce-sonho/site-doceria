@@ -27,6 +27,16 @@
   <a href="#contato">Contato</a>
 </nav>
 
+<div id="modal-fechado-fundo" class="modal-fundo" onclick="fecharModalFechadoFundo(event)">
+  <div class="modal-caixa">
+    <span class="modal-fechar" onclick="fecharModalFechado()">&times;</span>
+    <img src="Assunto.png" alt="Logo Doce Sonho" class="modal-logo">
+    <h3>Estamos fechados no momento</h3>
+    <p id="modal-fechado-texto"></p>
+    <p class="modal-subtexto">Fique à vontade pra navegar e fazer seu pedido — respondemos assim que abrirmos!</p>
+  </div>
+</div>
+
 <main>
 
   <section class="destaque">
@@ -280,6 +290,30 @@
     } else {
       statusEl.textContent = `Fechado no momento — voltamos às ${HORARIO_ABERTURA}h`;
       statusEl.className = "status-loja status-fechado";
+      abrirModalFechado();
+    }
+  }
+
+  function abrirModalFechado() {
+    if (sessionStorage.getItem("modalFechadoVisto") === "sim") return;
+
+    const modalTexto = document.getElementById("modal-fechado-texto");
+    if (modalTexto) {
+      modalTexto.textContent = `Nosso horário de atendimento é das ${HORARIO_ABERTURA}h às ${HORARIO_FECHAMENTO}h.`;
+    }
+    const fundo = document.getElementById("modal-fechado-fundo");
+    if (fundo) fundo.classList.add("aberto");
+  }
+
+  function fecharModalFechado() {
+    const fundo = document.getElementById("modal-fechado-fundo");
+    if (fundo) fundo.classList.remove("aberto");
+    sessionStorage.setItem("modalFechadoVisto", "sim");
+  }
+
+  function fecharModalFechadoFundo(evento) {
+    if (evento.target.id === "modal-fechado-fundo") {
+      fecharModalFechado();
     }
   }
 
